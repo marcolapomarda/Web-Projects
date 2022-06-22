@@ -1,0 +1,315 @@
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ------ main & header styles ------ */
+
+main {
+    display: flex;
+    flex-direction: column;
+    background: url('img/portofino.jpg');
+    height: 650px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 65%);
+}
+
+main header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    width: 95%;
+    margin: 0 auto;
+    Font-Family: 'Roboto Condensed', Sans-Serif;
+}
+
+main header nav {
+    display: flex;
+    width: 40%;
+}
+
+.title {
+    color: #FFAD66;
+}
+
+main header h1 {
+    margin-left: 4rem;
+    font-size: 3rem;
+}
+
+main header nav ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    font-size: 1.2rem;
+}
+
+main header nav ul li a {
+    color: #fff;
+    transition: color .2s;
+}
+
+main header nav ul li a:hover {
+    color: #FFAD66;
+}
+
+main .banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 8rem;
+}
+
+main .banner h2 {
+    font-family: 'Cabin', Sans-Serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 1rem 0;
+}
+
+main .banner p {
+    font-family: 'Playfair Display', Serif;
+    font-size: 1.3rem;
+    color: #fff;
+    margin: 1rem 0;
+}
+
+@media only screen and (max-width: 870px) {
+    main header nav ul {
+        font-size: 1rem;
+    }
+
+    main .banner h2 {
+        font-size: 2.5rem;
+        margin: 0.8rem 0;
+    }
+
+    main .banner p {
+        font-size: 1.1rem;
+        margin: 0.8rem 0;
+    }
+}
+
+@media only screen and (max-width: 690px) {
+    main .banner {
+        padding: 0px 7rem;
+        text-align: center;
+    }
+
+    main header h1 {
+        margin-left: 0;
+    }
+
+    main header nav ul {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
+/* ------ destinations section styles ------ */
+
+.destinations h3 {
+    font-family: 'Roboto Condensed', Sans-Serif;
+    text-align: center;
+    font-size: 3rem;
+    color: #004278;
+}
+
+.destinations-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.destinations-item {
+    width: 450px;
+    box-shadow: 5px 0px 30px #aaa;
+    padding: 10px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.destinations-item img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.destinations-item h4 {
+    font-size: 1.5rem;
+    font-family: 'Roboto Condensed', Sans-Serif;
+    margin: 1rem 0.5rem;
+    color: #004278;
+    transition: color .2s;
+    display: inline-block;
+}
+
+.destinations-item h4:hover {
+    color: #459de6;
+}
+
+.destinations-item p {
+    margin: 1rem 0.5rem;
+    margin-top: 0;
+    font-family: 'Roboto Condensed', Sans-Serif;
+}
+
+.itinerary-btn {
+    align-self: flex-end;
+    padding: 0.6rem 1rem;
+    background-color: #004278;
+    transition: background-color .2s;
+    margin: 1rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.itinerary-btn:hover {
+    background-color: #FFAD66;
+}
+
+.itinerary-btn a {
+    font-family: 'Cabin', Sans-Serif;
+    color: #fff;
+}
+
+@media only screen and (max-width: 1430px) {
+    .destinations-item {
+        margin-bottom: 2.5rem;
+    }
+}
+
+/* ------ about-us section styles ------ */
+
+.about-us {
+    margin-top: 100px;
+    background-color: #ffbb80;
+    padding: 3rem 0;
+}
+
+.about-us h3 {
+    margin: 0;
+    font-size: 2.8rem;
+    text-align: center;
+    font-family: 'Roboto Condensed';
+    padding: 2rem;
+    padding-top: 0;
+    color: #004278;
+}
+
+.about-us-container {
+    display: grid;
+    grid-template: 30rem 15rem / 25rem 20rem;
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem 4rem;
+    margin: 0 auto;
+}
+
+.about-us-container div {
+    grid-row: 1 / span 2;
+}
+
+.about-us-container p {
+    /*grid-row: 1 / span 2;*/
+    font-size: 1.45rem;
+    margin: 0;
+    margin-bottom: 10px;
+    font-family: 'Cabin';
+    color: #000f1b;
+}
+
+.about-us-container img {
+    max-height: 100%;
+    max-width: 100%;
+    box-shadow: 5px 0px 15px rgb(0 0 0 / 30%);
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 870px) {
+
+    .about-us-container {
+        grid-template: 25rem 12rem / 20rem 15rem;
+        gap: 1rem 3rem;
+    }
+
+    .about-us h3 {
+        font-size: 2.5rem;
+    }
+
+    .about-us-container p {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 690px) {
+    .about-us-container {
+        grid-template: 1fr / 1fr;
+    }
+
+    .about-us-container img {
+        display: none;
+    }
+}
+
+/* ------ footer ------ */
+
+footer {
+    background-color: #222;
+    padding: 5rem 1rem;
+}
+
+.contacts-container {
+    display: flex;
+    font-family: 'Roboto Condensed', Sans-Serif;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 14rem;
+}
+
+.contacts-container h3 {
+    margin: 0;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.contacts-container p {
+    margin: 0;
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.contacts-container .copyright {
+    margin: 0;
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+@media only screen and (max-width: 690px) {
+    .contacts-container h3 {
+        font-size: 2.7rem;
+    }
+
+    .contacts-container p {
+        font-size: 1.2rem;
+    }
+
+    .contacts-container .copyright {
+        font-size: 0.7rem;
+    }
+}
