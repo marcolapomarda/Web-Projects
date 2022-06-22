@@ -1,0 +1,170 @@
+/*------ global stylings ------*/
+
+body {
+    background-color: #000;
+    font-family: Helvetica, sans-serif;
+    font-size: 22px;
+    color: seashell;
+    opacity: 0.9;
+}
+
+h2, h4 {
+    margin: 15px 0;
+}
+
+/*------ header stylings ------*/
+
+header {
+    display: flex;
+    height: 69px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid seashell;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+nav {
+    width: 350px;
+    margin-right: 10px;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+ul li a {
+    color: seashell;
+}
+
+header img {
+    height: 50px;
+    margin-left: 10px;
+}
+
+/*------ main stylings ------*/
+
+main {
+    background: url('./img/img-mission-background.jpg');
+    height: 700px;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.mission-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+/*------ tea section stylings ------*/
+
+.tea-section {
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.tea-img-container {
+    display: flex;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tea-img-container figure {
+    margin: 15px;
+}
+
+.tea-img-container figure img {
+    height: 200px;
+    width: 300px;
+    /*
+    the following property is to remove the unwanted space between the img and the figcaption, can also use:
+    vertical-align: middle;
+    */
+    display: block; 
+}
+
+.tea-img-container figcaption {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+}
+
+/*------ location section stylings ------*/
+
+.location-section {
+    background: url('./img/img-locations-background.jpg');
+    height: 600px;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.location-section h2 {
+    margin: 0;
+}
+
+.location-section-container {
+    display: flex;
+}
+
+.location-section-box {
+    background-color: #000;
+    margin: 15px 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.location-section-box p {
+    padding: 10px;
+}
+
+.location-section-box.active {
+    opacity: 1;
+}
+
+/*------ contact section stylings ------*/
+
+.contact-section {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+}
+
+.contact-section h5 {
+    margin: 15px 0;
+}
+
+.contact-section div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*------ footer stylings ------*/
+
+footer p {
+    text-align: left;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
