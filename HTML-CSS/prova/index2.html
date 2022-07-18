@@ -5,30 +5,38 @@
       $(document).ready(() => {
         const colors = ['blue','red','yellow','green'];
         let loop;
-        let j;
-        function start(i){
+		let check = 0;
+		let loopRestart;
+		//let loopRestart = [];
+		let i = 0;
+        function start(){
           if(i < colors.length){
-            loop = setTimeout(function(){
+			loop = setInterval(function(){
               $('body').css("backgroundColor", colors[i]);
               i++;
               if (i >= colors.length) {
                 i = 0;
               }
-              j = i;
-              start(i);
             }, 500);
           }
+		  return loop;
         }
 
         $('#btnStop').on('click', () => {
-          clearTimeout(loop);
+		  clearInterval(loop);
+          clearInterval(loopRestart);
+		  /*loopRestart.forEach(el => {
+		    clearInterval(el);
+		  });*/
         });
 
         $('#btnRestart').on('click', () => {
-          loop = start(j);
+		//console.log(start());
+		  //loopRestart.push(start());
+		  loopRestart = start();
         });
 
-        start(0);
+        start();
       })
     </script>
     <style>
