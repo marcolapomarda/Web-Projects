@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         sudokuGrid.appendChild(newRow);
     }
+
+    const resetButton = document.getElementById("reset-btn");
+    resetButton.addEventListener('click', resetGrid);
 });
 
 async function solveSudoku() {
@@ -70,7 +73,7 @@ async function solveSudoku() {
 }
 
 function solveSudokuHelper(board) {
-    const gridSize = 9;
+    const gridSize = 9; 
 
     for(let row = 0; row < gridSize; row++) {
         for(let col = 0; col < gridSize; col++) {
@@ -122,4 +125,16 @@ function isValidMove(board, row, col, num) {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function resetGrid() {
+    const gridSize = 9;
+    for(let row = 0; row < gridSize; row++) {
+        for(let col = 0; col < gridSize; col++) {
+            const cell = document.getElementById(`cell-${row}-${col}`);
+            cell.value = "";
+            cell.classList.remove("solved");
+            cell.classList.remove("user-input");
+        }
+    }
 }
