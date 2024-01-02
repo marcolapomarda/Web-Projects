@@ -49,10 +49,15 @@ async function solveSudoku() {
         }
     }
 
-    //console.log(sudokuArray);
-
     // Solving sudoku puzzle and displaying solution
     if(solveSudokuHelper(sudokuArray)) {
+        
+        for(let row = 0; row < gridSize; row++) {
+            for(let col = 0; col < gridSize; col++) {
+                if(sudokuArray[row][col] == 0) return;
+            }
+        }
+
         for(let row = 0; row < gridSize; row++) {
             for(let col = 0; col < gridSize; col++) {
                 const cellId = `cell-${row}-${col}`;
@@ -75,6 +80,71 @@ async function solveSudoku() {
 function solveSudokuHelper(board) {
     const gridSize = 9; 
 
+    // Checking grid having only user-input numbers for conflicts
+    for(let row = 0; row < gridSize; row++) {
+        for(let col = 0; col < gridSize; col++) {
+            if(document.getElementById(`cell-${row}-${col}`).classList.contains("user-input")) {
+                const numInput = parseInt(document.getElementById(`cell-${row}-${col}`).value);
+                const subgridArray = [];
+                const rowArray = [];
+                const colArray = [];
+
+                // Creating the 3*3 subgrid to check later for user-input conflicts
+                const startRow = Math.floor(row / 3) * 3;
+                const startCol = Math.floor(col / 3) * 3;
+                
+                for(let i = 0; i < 3; i++) {
+                    subgridArray[i] = [];
+                    for(let j = 0; j < 3; j++) {
+                        const numInput = document.getElementById(`cell-${i+startRow}-${j+startCol}`).value;
+                        subgridArray[i][j] = numInput !== "" ? parseInt(numInput) : 0;
+                        
+                    }
+                }
+
+                // Creating row and column arrays to check later for user-input confilcts
+                for(let i = 0; i < gridSize; i++) {
+                    const numInputRow = document.getElementById(`cell-${row}-${i}`).value;
+                    rowArray[i] = numInputRow !== "" ? parseInt(numInputRow) : 0;
+
+                    const numInputCol = document.getElementById(`cell-${i}-${col}`).value;
+                    colArray[i] = numInputCol !== "" ? parseInt(numInputCol) : 0;
+                }
+
+                // Incrementing counters if a number is duplicated in a Row or Column
+                let rowNumCount = 0;
+                let colNumCount = 0;
+                for(let i = 0; i < gridSize; i++) {
+                    if(rowArray[i] === numInput) rowNumCount++;
+                    if(colArray[i] === numInput) colNumCount++;
+                }
+
+                // Incrementing counter if a number is duplicated in a 3*3 Sub Grid
+                let subGridCount = 0;
+                for(let row = 0; row < 3; row++) {
+                    for(let col = 0; col < 3; col++) {
+                        if(subgridArray[row][col] == numInput) subGridCount++;
+                    }
+                }
+
+                // Checking user-input confilcts in Row or Column
+                if(rowNumCount > 1 || colNumCount > 1) {
+                    alert("Duplicate number in Row or Column found!");
+                    resetGrid();
+                    return true; // Conflict found
+                }
+
+                // Checking user-input confilcts in 3*3 SubGrid
+                if(subGridCount > 1) {
+                    alert("Duplicate number in 3*3 sub grid found!");
+                    resetGrid();
+                    return true; // Conflict found
+                }
+            }
+        }
+    }
+
+    // Populating puzzle grid
     for(let row = 0; row < gridSize; row++) {
         for(let col = 0; col < gridSize; col++) {
             if(board[row][col] === 0) {
