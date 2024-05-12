@@ -12,14 +12,15 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #20629b;
+    /*background: #20629b;*/
+    background: linear-gradient(to bottom right, #20629b, #68b2f2);
 }
 
 .container {
     width: 45vh;
     background: #fff;
     border-radius: 6px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 50px rgba(19, 25, 42, 0.2);
 }
 
 .container h2 {
