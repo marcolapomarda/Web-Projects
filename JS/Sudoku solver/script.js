@@ -52,6 +52,7 @@ async function solveSudoku() {
     // Solving sudoku puzzle and displaying solution
     if(solveSudokuHelper(sudokuArray)) {
         
+        // Duplicates found in row, column or subgrid
         for(let row = 0; row < gridSize; row++) {
             for(let col = 0; col < gridSize; col++) {
                 if(sudokuArray[row][col] == 0) return;
@@ -64,10 +65,13 @@ async function solveSudoku() {
                 const cell = document.getElementById(cellId);
 
                 // Filling solution with animation
-                if(!cell.classList.contains("user-input")) {
+                if(!cell.classList.contains("user-input") || !cell.value) {
+                    /* if a user inputs a duplicate number in a row, column or subgrid it will stop the sudoku solvig execution, 
+                       so the cell in which the user is deleting the duplicate needs also the class 'user-input' to be removed */
+                    if(!cell.value) cell.classList.remove("user-input");
                     cell.value = sudokuArray[row][col];
                     cell.classList.add("solved");
-                    await sleep(20); // Delay for visualization
+                    await sleep(10); // Delay for visualization
                 }
             }
         }
@@ -98,7 +102,6 @@ function solveSudokuHelper(board) {
                     for(let j = 0; j < 3; j++) {
                         const numInput = document.getElementById(`cell-${i+startRow}-${j+startCol}`).value;
                         subgridArray[i][j] = numInput !== "" ? parseInt(numInput) : 0;
-                        
                     }
                 }
 
@@ -130,14 +133,12 @@ function solveSudokuHelper(board) {
                 // Checking user-input confilcts in Row or Column
                 if(rowNumCount > 1 || colNumCount > 1) {
                     alert("Duplicate number in Row or Column found!");
-                    resetGrid();
                     return true; // Conflict found
                 }
 
                 // Checking user-input confilcts in 3*3 SubGrid
                 if(subGridCount > 1) {
                     alert("Duplicate number in 3*3 sub grid found!");
-                    resetGrid();
                     return true; // Conflict found
                 }
             }
