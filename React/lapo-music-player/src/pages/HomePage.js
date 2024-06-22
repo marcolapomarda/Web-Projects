@@ -4,7 +4,7 @@ import TopArtistsList from '../components/Homepage/TopArtistsList';
 import TopTracksList from '../components/Homepage/TopTracksList';
 import { useSpotifyAPI } from '../hooks/useSpotifyAPI';
 
-function HomePage() {
+const HomePage = () => {
   const { getUserPlaylists, getTopArtists, getTopTracks } = useSpotifyAPI();
   const [playlistsList, setPlaylistsList] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
@@ -20,13 +20,18 @@ function HomePage() {
       setTopTracks(tracks);
     }
     fetchData();
+
+    const homeIcon = document.querySelector('#homepage-icon');
+    const playerIcon = document.querySelector('#music-player-icon');
+    homeIcon && homeIcon.classList.add('active');
+    if(playerIcon && playerIcon.classList.contains('active')) playerIcon.classList.remove('active');
   }, []);
 
   return (
     <div className="home-page">
       <PlaylistsList playlistsList={playlistsList} />
-      <TopArtistsList topArtists={topArtists} />
       <TopTracksList topTracks={topTracks} />
+      <TopArtistsList topArtists={topArtists} />
     </div>
   );
 }

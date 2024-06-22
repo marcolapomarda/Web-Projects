@@ -93,9 +93,15 @@ const refreshAccessToken = async () => {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
     });
-      accessToken = response.data.access_token;
-      tokenExpiryTime = Date.now() + (response.data.expires_in * 1000);
-      return response.data;
+    accessToken = response.data.access_token;
+    tokenExpiryTime = Date.now() + (response.data.expires_in * 1000);
+
+    // Only update the refresh token if a new one is returned
+    if (response.data.refresh_token) {
+        refreshToken = response.data.refresh_token;
+    }
+
+    return response.data;
     } catch (error) {
       console.error('Error refreshing access token:', error);
     }

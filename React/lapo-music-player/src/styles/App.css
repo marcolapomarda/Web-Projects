@@ -1,0 +1,139 @@
+.app-container {
+    background: rgba(57, 53, 89, 0.9);;
+    max-width: 1500px;
+    max-height: 830px;
+    margin: 45px auto;
+    border-radius: 50px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* ----- Sidebar styles ----- */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px; /* Fixed width for sidebar */
+    /*height: 100vh;  Full viewport height */
+    padding: 20px 10px 20px 0; /* Padding for spacing */
+    height: 800px;
+}
+.sidebar-upper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Spacing between groups */
+}
+.sidebar-upper-g1 {
+    margin: 20px 0; /* Spacing from the top */
+}
+.sidebar-upper-g2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Spacing between icons */
+}
+.sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Spacing between icons */
+}
+/* Icon styling */
+.sidebar i {
+    color: #B0B0B0; /* Light grey color for icons */
+    font-size: 18px; /* Icon size */
+    cursor: pointer;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+/* Highlight effect for the active icon */
+.sidebar i.active {
+    color: #FFFFFF; /* White color for active icon */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Soft glow effect */
+}
+.sidebar i:hover {
+    color: #FFFFFF; /* White color on hover */
+}
+/* Spacing for the icons */
+.sidebar-upper-g2 i,
+.sidebar-bottom i {
+    margin: 15px 0; /* Vertical spacing for icons */
+}
+/* General responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50px; /* Slightly smaller width for smaller screens */
+    }
+
+    .sidebar i {
+        font-size: 20px; /* Slightly smaller icons for smaller screens */
+    }
+}
+
+/* ----- Homepage styles ----- */
+.home-page {
+    background: #fcfcff;
+    width: 100%;
+    max-height: inherit;
+    border-radius: 40px;
+    display: grid;
+    grid-template-areas:
+        "playlists playlists"
+        "top-tracks top-artists";
+}
+.home-page h2 {
+    color: #2d2e37;
+}
+
+.playlists {
+    grid-area: playlists;
+    max-height: 250px;
+    overflow: scroll;
+    padding: 20px 30px;
+}
+.playlists h2 {
+    margin: 20px 0;
+}
+.playlists-wrapper{
+    display: grid;
+    grid-template-rows: 80px 80px;
+    grid-auto-columns: 250px;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.playlist-card {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+.playlist-card:hover {
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14);
+}
+.playlist-card img {
+    height: 60px;
+    width: 60px;
+    border-radius: 6px 0 0 6px;
+}
+.playlist-card p {
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.top-artists {
+    grid-area: top-artists;
+    overflow: scroll;
+    max-height: 590px;
+}
+
+.top-tracks {
+    grid-area: top-tracks;
+    overflow: scroll;
+    max-height: 590px;
+}
