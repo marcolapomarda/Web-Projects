@@ -1,31 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PlaylistsList from '../components/Homepage/PlaylistsList';
 import TopArtistsList from '../components/Homepage/TopArtistsList';
 import TopTracksList from '../components/Homepage/TopTracksList';
-import { useSpotifyAPI } from '../hooks/useSpotifyAPI';
+import { useSpotifyData } from '../contexts/SpotifyDataContext';
 
 const HomePage = () => {
-  const { getUserPlaylists, getTopArtists, getTopTracks } = useSpotifyAPI();
-  const [playlistsList, setPlaylistsList] = useState([]);
-  const [topArtists, setTopArtists] = useState([]);
-  const [topTracks, setTopTracks] = useState([]);
+  const { playlistsList, topArtists, topTracks, dataFetched } = useSpotifyData();
 
-  useEffect(() => {
-    async function fetchData() {
-      const playlists = await getUserPlaylists();
-      const artists = await getTopArtists();
-      const tracks = await getTopTracks();
-      setPlaylistsList(playlists);
-      setTopArtists(artists);
-      setTopTracks(tracks);
-    }
-    fetchData();
-
-    const homeIcon = document.querySelector('#homepage-icon');
-    const playerIcon = document.querySelector('#music-player-icon');
-    homeIcon && homeIcon.classList.add('active');
-    if(playerIcon && playerIcon.classList.contains('active')) playerIcon.classList.remove('active');
-  }, []);
+  if (!dataFetched) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="home-page">

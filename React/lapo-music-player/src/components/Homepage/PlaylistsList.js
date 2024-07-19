@@ -1,6 +1,5 @@
 const PlaylistsList = (props) => {
     const playlists = props.playlistsList.items;
-    console.log(playlists);
 
     return (
         <div className="playlists">

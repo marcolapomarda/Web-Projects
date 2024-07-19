@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 const api = axios.create({
@@ -10,6 +11,7 @@ export const useSpotifyAPI = () => {
     const [refreshToken, setRefreshToken] = useState(localStorage.getItem('spotify_refresh_token') || '');
     const [expiresAt, setExpiresAt] = useState(localStorage.getItem('spotify_expires_at') || 0);
     const [currentTrack, setCurrentTrack] = useState({});
+    const navigate = useNavigate();
 
     //console.log(process.env.SERVER_URL);
 
@@ -39,6 +41,16 @@ export const useSpotifyAPI = () => {
         return () => clearInterval(interval);
     }, [expiresAt]);
 
+    // const clearStorageAndLogout = () => {
+    //     localStorage.removeItem('spotify_access_token');
+    //     localStorage.removeItem('spotify_refresh_token');
+    //     localStorage.removeItem('spotify_expires_at');
+    //     setAccessToken('');
+    //     setRefreshToken('');
+    //     setExpiresAt(0);
+    //     navigate('/callback');
+    // };
+
     const refreshTokenFunc = async () => {
         try {
             const response = await api.get('/api/spotify/refresh_token', {
@@ -62,6 +74,7 @@ export const useSpotifyAPI = () => {
             console.log('Token refreshed');
         } catch (error) {
             console.error('Error refreshing token:', error);
+            //clearStorageAndLogout();
         }
     }
 
@@ -75,6 +88,10 @@ export const useSpotifyAPI = () => {
             return response.data;
         } catch (error) {
             console.error('Error fetching user\'s playlists:', error);
+            // if (error.response && error.response.status === 400) {
+            //     await refreshTokenFunc();
+            //     return await getUserPlaylists();
+            // }
             return [];
         }
     };
@@ -89,6 +106,10 @@ export const useSpotifyAPI = () => {
             return response.data;
         } catch (error) {
             console.error('Error fetching top artists:', error);
+            // if (error.response && error.response.status === 400) {
+            //     await refreshTokenFunc();
+            //     return await getTopArtists();
+            // }
             return [];
         }
     };
@@ -103,6 +124,10 @@ export const useSpotifyAPI = () => {
         return response.data;
         } catch (error) {
             console.error('Error fetching top tracks:', error);
+            // if (error.response && error.response.status === 400) {
+            //     await refreshTokenFunc();
+            //     return await getTopTracks();
+            // }
             return [];
         }
     };
