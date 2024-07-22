@@ -1,0 +1,165 @@
+@import url('https://fonts.cdnfonts.com/css/digital-numbers');
+
+* {
+    /* box-sizing: border-box; */
+    border: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    background-color: lightgray;
+    padding: 10px;
+    width: 810px;
+    border-right: 5px solid darkgray;
+    border-bottom: 5px solid darkgray;
+    border-left: 5px solid #eee;
+    border-top: 5px solid #eee;
+}
+
+#controls {
+    width: 800px;
+    height: 80px;
+    border-left: 5px solid darkgray;
+    border-top: 5px solid darkgray;
+    border-right: 5px solid #eee;
+    border-bottom: 5px solid #eee;
+    margin-bottom: 14px;
+    background-color: lightgray;
+}
+
+#board {
+    width: 800px;
+    height: 800px;
+    border-left: 5px solid darkgray;
+    border-top: 5px solid darkgray;
+    border-right: 5px solid #eee;
+    border-bottom: 5px solid #eee;
+    background-color: lightgray;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#board div {
+    width: 42px;
+    height: 42px;
+    border-right: 4px solid darkgray;
+    border-bottom: 4px solid darkgray;
+    border-left: 4px solid #eee;
+    border-top: 4px solid #eee;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 600;
+}
+#board div.tile-pressed {
+    border: 2px solid #888;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: #cacaca;
+}
+#board div.mine-exploded {
+    background-color: red;
+    border: 2px solid #888;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.icon {
+    width: 36px;
+}
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#game-main-button {
+    width: 50px;
+    height: 50px;
+    border-right: 6px solid darkgray;
+    border-bottom: 6px solid darkgray;
+    border-left: 6px solid #eee;
+    border-top: 6px solid #eee;
+    background-color: lightgray;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-main-button.pressed {
+    border-right: 6px solid #eee;
+    border-bottom: 6px solid #eee;
+    border-left: 6px solid darkgray;
+    border-top: 6px solid darkgray;
+}
+
+#game-main-button img.pressed {
+    width: 42px;
+    height: 42px;
+}
+
+.main-button {
+    width: 44px;
+    height: 44px;
+}
+
+.controls-side {
+    width: 80px;
+    height: 54px;
+    border-left: 3px solid darkgray;
+    border-top: 3px solid darkgray;
+    border-right: 3px solid #eee;
+    border-bottom: 3px solid #eee;
+    background-color: #111;
+    margin: 0 10px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.controls-side span {
+    font-size: 35px;
+    font-family: 'Digital Numbers', sans-serif;
+    letter-spacing: -2px;
+}
+
+.x1 {
+    color: blue;
+}
+.x2 {
+    color: green;
+}
+.x3 {
+    color: red;
+}
+.x4 {
+    color: navy;
+}
+.x5 {
+    color: brown;
+}
+.x6 {
+    color: teal;
+}
+.x7 {
+    color: black;
+}
+.x8 {
+    color: gray;
+}
