@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/digital-numbers');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 * {
     /* box-sizing: border-box; */
@@ -13,6 +14,51 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative;
+}
+
+.game-results {
+    height: 270px;
+    width: 420px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 8px;
+    transition: all .4s;
+}
+.game-results h1,
+.game-results p,
+.game-results span  {
+    font-family: "Pixelify Sans", sans-serif;
+    text-align: center;
+    color: #eee;
+}
+.game-results h1{
+    font-size: 48px;
+    padding: 20px 0;
+}
+.game-results p{
+    font-size: 24px;
+}
+#time-elapsed {
+    margin-top: 8px;
+}
+.game-results-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 28px;
+}
+.game-results-buttons div {
+    border: 3px solid #eee;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 130px;
+}
+.game-results-button:hover {
+    text-decoration: underline;
+    color: #eee;
 }
 
 .game-container {

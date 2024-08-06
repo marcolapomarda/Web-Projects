@@ -1,7 +1,7 @@
 let board = [];
 let rows = 16;
 let cols = 16;
-let minesCount = 40;
+let minesCount = 20;
 const initMinesCount = minesCount;
 let minesLocation = [];
 let tilesClicked = 0;
@@ -14,6 +14,11 @@ const gameBtn = document.querySelector('#game-main-button');
 const gameBoard = document.querySelector('#board');
 const minesCountElement = document.querySelector('#mines-count');
 const gameTimer = document.querySelector('#game-time');
+const gameResultsPopUp = document.querySelector('#game-results');
+const newGameBtn = document.querySelector('#new-game');
+const dismissBtn = document.querySelector('#dismiss');
+
+dismissBtn.addEventListener('click', () => gameResultsPopUp.style.display = 'none');
 
 window.onload = () => {
     startGame();
@@ -58,6 +63,7 @@ function resetGame() {
     tilesClicked = 0;
     gameTimer.children[0].innerText = '000';
     minesCount = initMinesCount;
+    gameResultsPopUp.style.display = 'none';
     startGame();
 }
 
@@ -159,14 +165,18 @@ function clickTile() {
             tile.classList.add('mine-exploded');
             revealMines();
             clearInterval(timerID);
+            gameResultsPopUp.style.display = 'block';
+            gameResultsPopUp.children[0].innerText = 'Game Over';
+            newGameBtn.addEventListener('click', resetGame);
+            fillPopUpStats(minesCount, time);
             return;
         }
+        // if no flag placed in the tile, trigger recursion of checkMine
+        let coords = tile.id.split('-');
+        let r = parseInt(coords[0]);
+        let c = parseInt(coords[1]);
+        checkMine(r, c);
     }
-
-    let coords = tile.id.split('-');
-    let r = parseInt(coords[0]);
-    let c = parseInt(coords[1]);
-    checkMine(r, c);
 }
 
 function checkMine(row, col) {
@@ -275,6 +285,10 @@ function startTimer() {
 }
 
 function gameWon() {
+    gameResultsPopUp.style.display = 'block';
+    gameResultsPopUp.children[0].innerText = 'You Win!';
+    newGameBtn.addEventListener('click', resetGame);
+    fillPopUpStats(minesCount, time);
     gameOver = true;
     gameBtn.children[0].src = 'imgs/win-game.png';
     gameBtn.children[0].alt = 'win-game';
@@ -286,4 +300,11 @@ function gameWon() {
             tile.removeEventListener('click', clickTile);
         }
     }
+}
+
+function fillPopUpStats(minesNum, timeElapsed) {
+    const minesFoundEl = document.querySelector('#mines-found').children[0];
+    const timeElaspedEl = document.querySelector('#time-elapsed').children[0];
+    minesFoundEl.innerText = initMinesCount - minesNum;
+    timeElaspedEl.innerText = timeElapsed;
 }
