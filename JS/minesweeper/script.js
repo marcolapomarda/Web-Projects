@@ -1,7 +1,7 @@
 let board = [];
-let rows = 16;
-let cols = 16;
-let minesCount = 20;
+let rows = 20;
+let cols = 20;
+let minesCount = 30;
 const initMinesCount = minesCount;
 let minesLocation = [];
 let tilesClicked = 0;
@@ -306,5 +306,22 @@ function fillPopUpStats(minesNum, timeElapsed) {
     const minesFoundEl = document.querySelector('#mines-found').children[0];
     const timeElaspedEl = document.querySelector('#time-elapsed').children[0];
     minesFoundEl.innerText = initMinesCount - minesNum;
-    timeElaspedEl.innerText = timeElapsed;
+    if(timeElapsed <= 59) timeElaspedEl.innerText = timeElapsed + 's';
+    if(timeElapsed > 59) timeElaspedEl.innerText = '1m ' + (timeElapsed-60).toString() + 's';
+    if(timeElapsed > 119) timeElaspedEl.innerText = '2m ' + (timeElapsed-120).toString() + 's';
+    if(timeElapsed > 179) timeElaspedEl.innerText = '3m ' + (timeElapsed-180).toString() + 's';
+    if(timeElapsed > 239) timeElaspedEl.innerText = '4m ' + (timeElapsed-240).toString() + 's';
+    if(timeElapsed > 299) timeElaspedEl.innerText = '5m ' + (timeElapsed-300).toString() + 's';
+    if(timeElapsed > 359) timeElaspedEl.innerText = '6m ' + (timeElapsed-360).toString() + 's';
+    if(timeElapsed > 419) timeElaspedEl.innerText = '7m ' + (timeElapsed-420).toString() + 's';
+    if(timeElapsed > 479) timeElaspedEl.innerText = '8m ' + (timeElapsed-480).toString() + 's';
+    if(timeElapsed > 539) timeElaspedEl.innerText = '9m ' + (timeElapsed-540).toString() + 's';
+    if(timeElapsed > 599) timeElaspedEl.innerText = '10m ' + (timeElapsed-600).toString() + 's';
+    if(timeElapsed > 659) timeElaspedEl.innerText = '11m ' + (timeElapsed-660).toString() + 's';
+    if(timeElapsed > 719) timeElaspedEl.innerText = '12m ' + (timeElapsed-720).toString() + 's';
+    if(timeElapsed > 779) timeElaspedEl.innerText = '13m ' + (timeElapsed-780).toString() + 's';
+    if(timeElapsed > 839) timeElaspedEl.innerText = '14m ' + (timeElapsed-840).toString() + 's';
+    if(timeElapsed > 899) timeElaspedEl.innerText = '15m ' + (timeElapsed-900).toString() + 's';
+    if(timeElapsed > 959) timeElaspedEl.innerText = '16m ' + (timeElapsed-960).toString() + 's';
+    if(timeElapsed >= 999) timeElaspedEl.innerText = 'More than 16m 39s';
 }

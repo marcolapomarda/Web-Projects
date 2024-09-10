@@ -64,7 +64,7 @@ body {
 .game-container {
     background-color: lightgray;
     padding: 10px;
-    width: 810px;
+    width: 870px;
     border-right: 5px solid darkgray;
     border-bottom: 5px solid darkgray;
     border-left: 5px solid #eee;
@@ -72,7 +72,7 @@ body {
 }
 
 #controls {
-    width: 800px;
+    width: 860px;
     height: 80px;
     border-left: 5px solid darkgray;
     border-top: 5px solid darkgray;
@@ -83,8 +83,8 @@ body {
 }
 
 #board {
-    width: 800px;
-    height: 800px;
+    width: 860px;
+    height: 860px;
     border-left: 5px solid darkgray;
     border-top: 5px solid darkgray;
     border-right: 5px solid #eee;
@@ -95,8 +95,8 @@ body {
 }
 
 #board div {
-    width: 42px;
-    height: 42px;
+    width: 35px;
+    height: 35px;
     border-right: 4px solid darkgray;
     border-bottom: 4px solid darkgray;
     border-left: 4px solid #eee;
@@ -106,26 +106,26 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 600;
 }
 #board div.tile-pressed {
     border: 2px solid #888;
-    width: 50px;
-    height: 50px;
+    width: 43px;
+    height: 43px;
     box-sizing: border-box;
     background-color: #cacaca;
 }
 #board div.mine-exploded {
     background-color: red;
     border: 2px solid #888;
-    width: 50px;
-    height: 50px;
+    width: 43px;
+    height: 43px;
     box-sizing: border-box;
 }
 
 .icon {
-    width: 36px;
+    width: 32px;
 }
 
 #controls {
