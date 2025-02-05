@@ -1,0 +1,211 @@
+@import url('https://fonts.cdnfonts.com/css/digital-numbers');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    /* box-sizing: border-box; */
+    border: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.game-results {
+    height: 270px;
+    width: 420px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 8px;
+    transition: all .4s;
+}
+.game-results h1,
+.game-results p,
+.game-results span  {
+    font-family: "Pixelify Sans", sans-serif;
+    text-align: center;
+    color: #eee;
+}
+.game-results h1{
+    font-size: 48px;
+    padding: 20px 0;
+}
+.game-results p{
+    font-size: 24px;
+}
+#time-elapsed {
+    margin-top: 8px;
+}
+.game-results-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 28px;
+}
+.game-results-buttons div {
+    border: 3px solid #eee;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 130px;
+}
+.game-results-button:hover {
+    text-decoration: underline;
+    color: #eee;
+}
+
+.game-container {
+    background-color: lightgray;
+    padding: 10px;
+    width: 870px;
+    border-right: 5px solid darkgray;
+    border-bottom: 5px solid darkgray;
+    border-left: 5px solid #eee;
+    border-top: 5px solid #eee;
+}
+
+#controls {
+    width: 860px;
+    height: 80px;
+    border-left: 5px solid darkgray;
+    border-top: 5px solid darkgray;
+    border-right: 5px solid #eee;
+    border-bottom: 5px solid #eee;
+    margin-bottom: 14px;
+    background-color: lightgray;
+}
+
+#board {
+    width: 860px;
+    height: 860px;
+    border-left: 5px solid darkgray;
+    border-top: 5px solid darkgray;
+    border-right: 5px solid #eee;
+    border-bottom: 5px solid #eee;
+    background-color: lightgray;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#board div {
+    width: 35px;
+    height: 35px;
+    border-right: 4px solid darkgray;
+    border-bottom: 4px solid darkgray;
+    border-left: 4px solid #eee;
+    border-top: 4px solid #eee;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: 600;
+}
+#board div.tile-pressed {
+    border: 2px solid #888;
+    width: 43px;
+    height: 43px;
+    box-sizing: border-box;
+    background-color: #cacaca;
+}
+#board div.mine-exploded {
+    background-color: red;
+    border: 2px solid #888;
+    width: 43px;
+    height: 43px;
+    box-sizing: border-box;
+}
+
+.icon {
+    width: 32px;
+}
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#game-main-button {
+    width: 50px;
+    height: 50px;
+    border-right: 6px solid darkgray;
+    border-bottom: 6px solid darkgray;
+    border-left: 6px solid #eee;
+    border-top: 6px solid #eee;
+    background-color: lightgray;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-main-button.pressed {
+    border-right: 6px solid #eee;
+    border-bottom: 6px solid #eee;
+    border-left: 6px solid darkgray;
+    border-top: 6px solid darkgray;
+}
+
+#game-main-button img.pressed {
+    width: 42px;
+    height: 42px;
+}
+
+.main-button {
+    width: 44px;
+    height: 44px;
+}
+
+.controls-side {
+    width: 80px;
+    height: 54px;
+    border-left: 3px solid darkgray;
+    border-top: 3px solid darkgray;
+    border-right: 3px solid #eee;
+    border-bottom: 3px solid #eee;
+    background-color: #111;
+    margin: 0 10px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.controls-side span {
+    font-size: 35px;
+    font-family: 'Digital Numbers', sans-serif;
+    letter-spacing: -2px;
+}
+
+.x1 {
+    color: blue;
+}
+.x2 {
+    color: green;
+}
+.x3 {
+    color: red;
+}
+.x4 {
+    color: navy;
+}
+.x5 {
+    color: brown;
+}
+.x6 {
+    color: teal;
+}
+.x7 {
+    color: black;
+}
+.x8 {
+    color: gray;
+}

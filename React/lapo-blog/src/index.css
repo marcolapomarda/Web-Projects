@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+/* base styles */
+* {
+  margin: 0;
+  font-family: 'Quicksand';
+  color: #bbb;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1e1e1e;
+} 
+
+.navbar {
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  border-bottom: 1px solid #bbb;
+}
+.navbar h1 {
+  color: #ff5370;
+  /* color: #d81b60; */
+}
+.navbar .links {
+  margin-left: auto;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 8px;
+  transition: all ease 0.2s;
+}
+.navbar a:hover {
+  color: #ff5370;
+}
+.navbar a#create-blog:hover {
+  background-color: #ff5370;
+  color: #ddd;
+}
+
+.content {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* blogs styles */
+.blog-preview {
+  padding: 10px 16px;
+  margin: 20px 0;
+  background: #333;
+}
+.blog-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+.blog-preview h2 {
+  font-size: 20px;
+  color: #ff5370;
+  margin-bottom: 8px;
+}
+.blog-list a {
+  text-decoration: none;
+}
+
+/* blogs detail styles */
+.blog-detail-content h2 {
+  font-size: 20px;
+  color: #ff5370;
+  margin-bottom: 10px;
+}
+.blog-detail-content p {
+  font-size: 14px;
+  color: #bbb;
+}
+.blog-detail-content .blog-detail-content-body {
+  margin-top: 15px;
+  font-size: 16px;
+}
+.blog-detail-content button {
+  background: #333;
+  color: #bbb;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all ease 0.2s;
+  margin-top: 15px;
+}
+.blog-detail-content button:hover {
+  background: #ff5370;
+  color: #ddd;
+}
+
+/* add blog form styles */
+.create {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.create label {
+  text-align: left;
+  display: block;
+}
+.create h2 {
+  font-size: 20px;
+  color: #ff5370;
+  margin-bottom: 30px;
+}
+.create input, .create textarea, .create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  color: #333;
+}
+.create button {
+  background: #ddd;
+  color: #333;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+.create button.add-blog:hover {
+  background: #ff5370;
+  color: #ddd;
+}
+
+.create select option {
+  color: #333;
+}
