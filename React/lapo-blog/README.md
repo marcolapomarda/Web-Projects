@@ -68,3 +68,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## JSON Server
+
+Using JSON Server to read blogs data from a JSON file that simulates a DB, JSON Server will create endpoints to the top-level resources defined in the JSON file.
+
+Run the following command to launch the server: `npx json-server --watch data/db.json --port 8000`
+
+### Endpoints
+- `/blogs` | GET | Fetch all blogs
+- `/blogs/{id}` | GET | Fetch a single blog
+- `/blogs` | POST | Add a new blog
+- `/blogs/{id}` | DELETE | Delete a blog

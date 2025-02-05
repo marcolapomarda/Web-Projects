@@ -7,7 +7,6 @@ const useFetch = (url) => {
 
     useEffect(() => {
         setTimeout(() => {
-            //fetch('http://localhost:8000/blogs')
             fetch(url)
                 .then(res => {
                     if(!res.ok) throw Error('Oops! Could not fetch data from the server.');
