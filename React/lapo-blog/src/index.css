@@ -4,21 +4,20 @@
 * {
   margin: 0;
   font-family: 'Quicksand';
-  color: #bbb;
+  color: #333;
   box-sizing: border-box;
 }
 
 body {
-  background: #1e1e1e;
+  background: #eee;
 } 
 
 .navbar {
-  padding: 20px 30px;
+  padding: 20px 80px;
   display: flex;
   align-items: center;
-  max-width: 800px;
   margin: 0 auto;
-  border-bottom: 1px solid #bbb;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
 .navbar h1 {
   color: #ff5370;
@@ -52,7 +51,7 @@ body {
 .blog-preview {
   padding: 10px 16px;
   margin: 20px 0;
-  background: #333;
+  background: #eee;
 }
 .blog-preview:hover {
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
@@ -74,15 +73,15 @@ body {
 }
 .blog-detail-content p {
   font-size: 14px;
-  color: #bbb;
+  color: #333;
 }
 .blog-detail-content .blog-detail-content-body {
   margin-top: 15px;
   font-size: 16px;
 }
 .blog-detail-content button {
-  background: #333;
-  color: #bbb;
+  background: #ff5370;
+  color: #ddd;
   border: 0;
   padding: 8px;
   border-radius: 8px;
@@ -91,8 +90,8 @@ body {
   margin-top: 15px;
 }
 .blog-detail-content button:hover {
-  background: #ff5370;
-  color: #ddd;
+  background: #ddd;
+  color: #333;
 }
 
 /* add blog form styles */
