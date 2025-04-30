@@ -86,34 +86,85 @@ while(!gameOver) {
     if (!validInputs.includes(userInput)) {
         console.log('Invalid input');
     } else {
-        console.log(userInput);
+        //console.log(userInput);
         switch(userInput) {
             case 'd':
+                if(currentY+1 >= maxY) {
+                    console.log('Cannot go outside field boundaries');
+                    break;
+                }
                 if(myField._field[currentY+1][currentX] === fieldCharacter || myField._field[currentY+1][currentX] === pathCharacter) {
                     myField._field[currentY+1][currentX] = pathCharacter;
                     myField.print();
                     currentY++;
+                } else if(myField._field[currentY+1][currentX] === hole) {
+                    console.log('You fell into a hole, game over!');
+                    gameOver = true;
+                    break;
+                } else if(myField._field[currentY+1][currentX] === hat) {
+                    console.log('Congrats, you found your hat!');
+                    gameOver = true;
+                    break;
                 }
                 break;
+
             case 'u':
+                if(currentY-1 < minY) {
+                    console.log('Cannot go outside field boundaries');
+                    break;
+                }
                 if(myField._field[currentY-1][currentX] === fieldCharacter || myField._field[currentY-1][currentX] === pathCharacter) {
                     myField._field[currentY-1][currentX] = pathCharacter;
                     myField.print();
                     currentY--;
+                } else if(myField._field[currentY-1][currentX] === hole) {
+                    console.log('You fell into a hole, game over!');
+                    gameOver = true;
+                    break;
+                } else if(myField._field[currentY-1][currentX] === hat) {
+                    console.log('Congrats, you found your hat!');
+                    gameOver = true;
+                    break;
                 }
                 break;
+
             case 'r':
+                if(currentX+1 >= maxX) {
+                    console.log('Cannot go outside field boundaries');
+                    break;
+                }
                 if(myField._field[currentY][currentX+1] === fieldCharacter || myField._field[currentY][currentX+1] === pathCharacter) {
                     myField._field[currentY][currentX+1] = pathCharacter;
                     myField.print();
                     currentX++;
+                } else if(myField._field[currentY][currentX+1] === hole) {
+                    console.log('You fell into a hole, game over!');
+                    gameOver = true;
+                    break;
+                } else if(myField._field[currentY][currentX+1] === hat) {
+                    console.log('Congrats, you found your hat!');
+                    gameOver = true;
+                    break;
                 }
                 break;
+                
             case 'l':
+                if(currentX-1 < minX) {
+                    console.log('Cannot go outside field boundaries');
+                    break;
+                }
                 if(myField._field[currentY][currentX-1] === fieldCharacter || myField._field[currentY][currentX-1] === pathCharacter) {
                     myField._field[currentY][currentX-1] = pathCharacter;
                     myField.print();
                     currentX--;
+                } else if(myField._field[currentY][currentX-1] === hole) {
+                    console.log('You fell into a hole, game over!');
+                    gameOver = true;
+                    break;
+                } else if(myField._field[currentY][currentX-1] === hat) {
+                    console.log('Congrats, you found your hat!');
+                    gameOver = true;
+                    break;
                 }
                 break;
         }
